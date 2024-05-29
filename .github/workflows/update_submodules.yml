@@ -18,4 +18,4 @@ jobs:
         git submodule update --remote
         git add .
         git commit -m "Update submodules"
-        git push origin main  # Замените на вашу основную ветку
+        git push origin HEAD:${{ github.head_ref }}
