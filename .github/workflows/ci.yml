@@ -1,0 +1,21 @@
+name: Update Submodules
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive  # Клонирование submodules
+
+    - name: Update submodules to latest commit on the branch
+      run: |
+        git submodule update --remote
+        git add .
+        git commit -m "Update submodules"
+        git push origin main  # Замените на вашу основную ветку
