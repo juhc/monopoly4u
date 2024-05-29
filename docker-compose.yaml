@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./monopoly4u-front/.
+    ports:
+      - "80:80"
+    volumes:
+      - ./conf.d/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - app-network
+      - default
+
+networks:
+  app-network:
+    external: true
+  default:
+    driver: bridge
+  

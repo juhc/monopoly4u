@@ -1,0 +1,12 @@
+[submodule "monopoly4u-front"]
+	path = monopoly4u-front
+	url = https://github.com/juhc/monopoly4u-front.git
+[submodule "monopoly4u-sockets"]
+	path = monopoly4u-sockets
+	url = https://github.com/juhc/monopoly4u-sockets.git
+[submodule "monopoly4u-game"]
+	path = monopoly4u-game
+	url = https://github.com/juhc/monopoly4u-game.git
+[submodule "monopoly4u-auth"]
+	path = monopoly4u-auth
+	url = https://github.com/sentssov/monopoly4u-back.git
