@@ -1,21 +1,24 @@
-name: Update Submodules
+name: Update from Submodule
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types: [update-submodule]
 
 jobs:
-  update-submodules:
+  update-main-repo:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        submodules: recursive  # Клонирование submodules
+        submodules: recursive # Клонирование с субмодулями
 
-    - name: Update submodules to latest commit on the branch
+    - name: Update submodules
       run: |
-        git submodule update --remote
+        git submodule update --remote --merge
         git add .
         git commit -m "Update submodules"
-        git push origin HEAD:${{ github.head_ref }}
+        git push origin HEAD:main
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
