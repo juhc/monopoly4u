@@ -1,6 +1,9 @@
 name: Update from Submodule
 
 on:
+  push:
+    branches:
+      - main
   repository_dispatch:
     types: [update-submodule]
 
