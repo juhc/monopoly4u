@@ -15,7 +15,7 @@ jobs:
 
     - name: Build and test with Docker Compose
       run: |
-        echo " POSTGRES_PASSWORD=postgres \ 
+        echo "POSTGRES_PASSWORD=postgres \ 
         FRONTEND_ORIGIN=http://localhost:5173 \
         JWT_SECRET=${{ secrets.JWT_SECRET }} \ 
         TOKEN_EXPIRES_AT=1h \ 
