@@ -15,6 +15,7 @@ jobs:
 
     - name: Build and test with Docker Compose
       run: |
+        docker network create app-network
         git submodule update --init --recursive --remote
         make build
         make test
