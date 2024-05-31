@@ -16,6 +16,12 @@ run:
 	docker-compose -f ./monopoly4u-game/docker-compose.yaml up --build -d
 	docker-compose -f ./docker-compose.yaml up --build -d
 
+status:
+	docker-compose -f ./monopoly4u-auth/deployments/docker-compose.yml ps
+	docker-compose -f ./monopoly4u-sockets/docker-compose.yaml ps
+	docker-compose -f ./monopoly4u-game/docker-compose.yaml ps
+	docker-compose -f ./docker-compose.yaml ps
+
 down:
 	docker-compose -f ./monopoly4u-auth/deployments/docker-compose.yml down
 	docker-compose -f ./monopoly4u-sockets/docker-compose.yaml down
