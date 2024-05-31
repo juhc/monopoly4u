@@ -16,12 +16,12 @@ jobs:
     - name: Build and test with Docker Compose
       run: |
         git submodule update --init --recursive --remote
-        echo "POSTGRES_PASSWORD=postgres \ 
-        FRONTEND_ORIGIN=http://localhost:5173 \
-        JWT_SECRET=${{ secrets.JWT_SECRET }} \ 
-        TOKEN_EXPIRES_AT=1h \ 
-        GOOGLE_OAUTH_CLIENT_ID=${{ secrets.OAUTH_ID }} \
-        GOOGLE_OAUTH_CLIENT_SECRET=${{ secrets.OAUTH_SECRET }} \ 
+        echo "POSTGRES_PASSWORD=postgres
+        FRONTEND_ORIGIN=http://localhost:5173
+        JWT_SECRET=${{ secrets.JWT_SECRET }}
+        TOKEN_EXPIRES_AT=1h
+        GOOGLE_OAUTH_CLIENT_ID=${{ secrets.OAUTH_ID }}
+        GOOGLE_OAUTH_CLIENT_SECRET=${{ secrets.OAUTH_SECRET }}
         GOOGLE_OAUTH_REDIRECT_URI=http://localhost:8080/api/sessions/oauth/google" > ./monopoly4u-auth/.env
         docker network create app-network
         make build
