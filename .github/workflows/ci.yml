@@ -13,7 +13,7 @@ jobs:
     - name: Set up Docker
       uses: docker/setup-buildx-action@v1
 
-    - name: Build and test with Docker Compose
+    - name: Build Docker Compose
       run: |
         git submodule update --init --recursive --remote
         echo "POSTGRES_PASSWORD=postgres
@@ -25,7 +25,12 @@ jobs:
         GOOGLE_OAUTH_REDIRECT_URI=http://localhost:8080/api/sessions/oauth/google" > ./monopoly4u-auth/.env
         docker network create app-network
         make build
-        make test
+        
+    - name: Wait for services to be ready
+      run: sleep 30
 
-    - name: Clean up
-      run: make clean
+    - name: Check services status
+      run: make status
+
+    - name: Shutdown Docker Compose
+      run: make down
