@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, workflow-dispatch]
+on: [push]
 
 jobs:
   build:
